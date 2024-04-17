@@ -1,0 +1,16 @@
+{
+  "name": "@blockadjacent/bots-core",
+  "version": "1.0.0",
+  "description": "Core functions and constants that are shared by other packages in this monorepo.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "compile": "rm -rf dist/* && rm -f tsconfig.pkg.tsbuildinfo && tsc -p tsconfig.pkg.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Owan Hunte",
+  "license": "SEE LICENSE IN <project-root>/LICENSE.md",
+  "dependencies": {
+    "bignumber.js": "^9.1.2"
+  }
+}
