@@ -1,1 +1,1 @@
-export { numberToBigNumber } from "./util/helpers";
+export { numberToBigNumber, getScaledAmount, getUnScaledAmount } from "./util/helpers";
