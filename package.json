@@ -12,6 +12,12 @@
   },
   "homepage": "https://github.com/blockadjacent/multichain-defi-bots#README",
   "scripts": {
+    "dev-login": "supabase login",
+    "dev-start": "supabase start",
+    "dev-stop": "supabase stop",
+    "apply-migrations": "supabase db reset",
+    "db-lint": "supabase db lint --schema public",
+    "test-db": "npm run db-lint && supabase test db",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Owan Hunte",
@@ -23,6 +29,7 @@
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.12.7",
     "prettier": "^3.2.5",
+    "supabase": "^1.172.2",
     "typescript": "^5.4.5"
   }
 }
