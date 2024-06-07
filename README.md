@@ -1,11 +1,11 @@
 # Multi-chain DeFi Bots
 
-> Experimental multi-chain DeFi bots for automating a variety of tasks on cryptocurrency tokens.
+> Experimental bots for trading cryptocurrency tokens via decentralized exchanges on different blockchains.
+> Currently supporting Algorand mainnet only. Support for some Ethereum L1/L2 blockchains coming in Q1 2025.
 
 ## Overview
 
-This repo houses experimental multi-chain bots that implement a variety of automated functions on a wallet's cryptocurrency tokens. Algorand is the only chain currently supported but Polygon and Arbitrum are the next chains on the roadmap to be supported. The range of functions performed include:
+This repo houses experimental bots that trade cryptocurrency tokens via decentralized exchanges on different blockchains.
+Algorand is the only chain currently supported but Polygon and Arbitrum are the next chains on the roadmap to be supported.
 
-- Fulfilling limit order trades between pairs of supported Algorand tokens, via the Tinyman and Pact SDKs.
-
-These bots are an on-going development effort and are being used internally by BlockAdjacent as part of the company's overall financial and investment growth strategies.
+These bots are an on-going development effort and are already being used extensively and successfully by our own team members.
