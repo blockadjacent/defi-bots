@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start Supabase local development setup
+        run: supabase db start
+
+      - name: Lint local database
+        run: supabase db lint --schema public
+
+      - name: Run DB unit tests
+        run: supabase test db
+
+      - name: Generating types for comparison
+        run: |
+          supabase gen types typescript --local > packages/bots-core/src/supabase-types.ts
+          if ! git diff --ignore-space-at-eol --exit-code --quiet packages/bots-core/src/supabase-types.ts; then
+            echo "Detected differences in committed and generated types. This may be expected but you should check the diff below:"
+            git diff
+          fi
