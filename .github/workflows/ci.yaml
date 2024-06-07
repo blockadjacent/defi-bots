@@ -30,8 +30,8 @@ jobs:
 
       - name: Generating types for comparison
         run: |
-          supabase gen types typescript --local > packages/bots-core/src/supabase-types.ts
-          if ! git diff --ignore-space-at-eol --exit-code --quiet packages/bots-core/src/supabase-types.ts; then
+          supabase gen types typescript --local > packages/bots-core/src/supabase.types.ts
+          if ! git diff --ignore-space-at-eol --exit-code --quiet packages/bots-core/src/supabase.types.ts; then
             echo "Detected differences in committed and generated types. This may be expected but you should check the diff below:"
             git diff
           fi
