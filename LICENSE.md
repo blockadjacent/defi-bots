@@ -1,4 +1,4 @@
-# BlockAdjacent Multi-chain DeFi Bots License
+# BlockAdjacent DeFi Bots License
 
 This software is built with various open-sourced software package dependencies, each of which carries their own license. The license accompanying each of these dependencies MUST be respected by the user of our DeFi Bots software.
 
