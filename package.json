@@ -1,16 +1,16 @@
 {
-  "name": "multichain-defi-bots",
+  "name": "defi-bots",
   "version": "1.0.0",
-  "description": "Experimental multi-chain DeFi bots for automating a variety of tasks on cryptocurrency tokens.",
+  "description": "Experimental bots for trading cryptocurrency tokens via decentralized exchanges on different blockchains.",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git@github.com:blockadjacent/multichain-defi-bots.git"
+    "url": "git@github.com:blockadjacent/defi-bots.git"
   },
   "bugs": {
-    "url": "https://github.com/blockadjacent/multichain-defi-bots/issues"
+    "url": "https://github.com/blockadjacent/defi-bots/issues"
   },
-  "homepage": "https://github.com/blockadjacent/multichain-defi-bots#README",
+  "homepage": "https://github.com/blockadjacent/defi-bots#README",
   "scripts": {
     "dev-login": "supabase login",
     "dev-start": "supabase start",
