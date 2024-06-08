@@ -4,21 +4,19 @@ create table algo_assets
     token_id     integer  not null,
     name         text     not null,
     unit_name    text     not null,
-    network      text     not null        default 'mainnet'::text,
+    network      text     not null default 'mainnet'::text,
     decimals     smallint not null,
-    is_native    boolean  not null        default false,
-    is_supported boolean  not null        default true,
+    is_native    boolean  not null default false,
+    is_supported boolean  not null default true,
     created_at   timestamp with time zone default timezone('utc'::text, now()) not null,
     updated_at   timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
 alter table "public"."algo_assets" enable row level security;
 
-create
-policy "Enable read access for all users"
+create policy "Enable read access for all users"
 on "public"."algo_assets"
 as permissive
-for
-select
-    to public
-    using (true);
+for select
+to public
+using (true);
