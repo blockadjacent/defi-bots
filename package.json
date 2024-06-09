@@ -24,7 +24,8 @@
   "license": "SEE LICENSE IN LICENSE.md",
   "workspaces": [
     "packages/bots-core",
-    "packages/algo-defi-core"
+    "packages/algo-defi-core",
+    "packages/algo-defi-bots"
   ],
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",

@@ -1,0 +1,14 @@
+{
+  "name": "@blockadjacent/algo-defi-bots",
+  "version": "1.0.0",
+  "description": "A collection of DeFi bots built for the Algorand blockchain.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "compile": "rm -rf dist/* && rm -f tsconfig.pkg.tsbuildinfo && tsc -p tsconfig.pkg.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Owan Hunte <owan@blockadjacent.com>",
+  "license": "SEE LICENSE IN <project-root>/LICENSE.md",
+  "dependencies": {}
+}
