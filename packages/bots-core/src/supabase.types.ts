@@ -73,6 +73,96 @@ export type Database = {
         }
         Relationships: []
       }
+      algo_limit_orders: {
+        Row: {
+          always_use_starting_amount_in: boolean
+          amount_in: string
+          amount_received: string | null
+          asset_in: number
+          asset_out: number
+          at_price: string
+          completed_on: string | null
+          created_at: string
+          dex_used: string | null
+          first_asset_in_linked_trades: number | null
+          generate_reverse_trade: boolean
+          id: number
+          is_active: boolean
+          is_completed: boolean
+          network: string
+          order_type: string
+          origin_trade: number | null
+          reverse_trade_at_price: string | null
+          slippage: number
+          trx_id: string | null
+          updated_at: string
+          wallet_address: string
+        }
+        Insert: {
+          always_use_starting_amount_in?: boolean
+          amount_in: string
+          amount_received?: string | null
+          asset_in: number
+          asset_out: number
+          at_price: string
+          completed_on?: string | null
+          created_at?: string
+          dex_used?: string | null
+          first_asset_in_linked_trades?: number | null
+          generate_reverse_trade?: boolean
+          id?: number
+          is_active?: boolean
+          is_completed?: boolean
+          network?: string
+          order_type: string
+          origin_trade?: number | null
+          reverse_trade_at_price?: string | null
+          slippage?: number
+          trx_id?: string | null
+          updated_at?: string
+          wallet_address: string
+        }
+        Update: {
+          always_use_starting_amount_in?: boolean
+          amount_in?: string
+          amount_received?: string | null
+          asset_in?: number
+          asset_out?: number
+          at_price?: string
+          completed_on?: string | null
+          created_at?: string
+          dex_used?: string | null
+          first_asset_in_linked_trades?: number | null
+          generate_reverse_trade?: boolean
+          id?: number
+          is_active?: boolean
+          is_completed?: boolean
+          network?: string
+          order_type?: string
+          origin_trade?: number | null
+          reverse_trade_at_price?: string | null
+          slippage?: number
+          trx_id?: string | null
+          updated_at?: string
+          wallet_address?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "algo_limit_orders_asset_in_fkey"
+            columns: ["asset_in"]
+            isOneToOne: false
+            referencedRelation: "algo_assets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "algo_limit_orders_asset_out_fkey"
+            columns: ["asset_out"]
+            isOneToOne: false
+            referencedRelation: "algo_assets"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
