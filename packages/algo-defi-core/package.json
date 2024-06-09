@@ -11,6 +11,7 @@
   "author": "Owan Hunte <owan@blockadjacent.com>",
   "license": "SEE LICENSE IN <project-root>/LICENSE.md",
   "dependencies": {
+    "@blockadjacent/bots-core": "^1.0.0",
     "@pactfi/pactsdk": "^0.8.1",
     "@tinymanorg/tinyman-js-sdk": "^3.1.1",
     "algosdk": "^2.8.0"
