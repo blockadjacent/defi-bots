@@ -1,7 +1,7 @@
 {
-  "name": "@blockadjacent/bots-core",
+  "name": "@blockadjacent/algo-defi-core",
   "version": "1.0.0",
-  "description": "Core functions and constants that are shared by other packages in this monorepo.",
+  "description": "Core functions and constants that can be used by other Algorand-based packages in this monorepo.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -10,8 +10,5 @@
   },
   "author": "Owan Hunte <owan@blockadjacent.com>",
   "license": "SEE LICENSE IN <project-root>/LICENSE.md",
-  "dependencies": {
-    "@supabase/supabase-js": "^2.43.4",
-    "bignumber.js": "^9.1.2"
-  }
+  "dependencies": {}
 }

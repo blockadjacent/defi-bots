@@ -20,10 +20,11 @@
     "test-db": "npm run db-lint && supabase test db",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Owan Hunte",
+  "author": "Owan Hunte <owan@blockadjacent.com>",
   "license": "SEE LICENSE IN LICENSE.md",
   "workspaces": [
-    "packages/bots-core"
+    "packages/bots-core",
+    "packages/algo-defi-core"
   ],
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
