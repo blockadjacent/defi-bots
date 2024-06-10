@@ -36,6 +36,7 @@ export type Database = {
     Tables: {
       algo_assets: {
         Row: {
+          asset_id: number
           created_at: string
           decimals: number
           id: number
@@ -43,11 +44,11 @@ export type Database = {
           is_supported: boolean
           name: string
           network: string
-          token_id: number
           unit_name: string
           updated_at: string
         }
         Insert: {
+          asset_id: number
           created_at?: string
           decimals: number
           id?: number
@@ -55,11 +56,11 @@ export type Database = {
           is_supported?: boolean
           name: string
           network?: string
-          token_id: number
           unit_name: string
           updated_at?: string
         }
         Update: {
+          asset_id?: number
           created_at?: string
           decimals?: number
           id?: number
@@ -67,7 +68,6 @@ export type Database = {
           is_supported?: boolean
           name?: string
           network?: string
-          token_id?: number
           unit_name?: string
           updated_at?: string
         }

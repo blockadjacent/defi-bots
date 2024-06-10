@@ -12,7 +12,7 @@ export const getAlgoLimitOrders = async (address: string, network: SupportedNetw
             order_type,
             asset_in (
                 id,
-                token_id,
+                asset_id,
                 name,
                 unit_name,
                 decimals,
@@ -21,7 +21,7 @@ export const getAlgoLimitOrders = async (address: string, network: SupportedNetw
             ),
             asset_out (
                 id,
-                token_id,
+                asset_id,
                 name,
                 unit_name,
                 decimals,

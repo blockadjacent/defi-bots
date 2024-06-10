@@ -1,5 +1,5 @@
 -- seed algo_assets table
-insert into algo_assets (token_id, name, unit_name, decimals, is_native, is_supported)
+insert into algo_assets (asset_id, name, unit_name, decimals, is_native, is_supported)
 values
 (0, 'Algorand', 'ALGO', 6, true, true),
 (312769, 'Tether USDt', 'USDt', 6, false, true),

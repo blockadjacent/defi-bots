@@ -4,7 +4,7 @@ select plan(13);
 select has_table('algo_assets');
 
 select has_column('algo_assets', 'id');
-select has_column('algo_assets', 'token_id');
+select has_column('algo_assets', 'asset_id');
 select has_column('algo_assets', 'name');
 select has_column('algo_assets', 'unit_name');
 select has_column('algo_assets', 'network');
