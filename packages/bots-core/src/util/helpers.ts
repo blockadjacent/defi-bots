@@ -27,3 +27,9 @@ export const getUnScaledAmount = (amount: number | string | bigint | BigNumber, 
         return numberToBigNumber(amount);
     }
 };
+
+export const formatAmount = (value: any, maxDecimalDigits: number): string => {
+    return new Intl.NumberFormat("en-US", {
+        maximumFractionDigits: maxDecimalDigits,
+    }).format(value);
+};
