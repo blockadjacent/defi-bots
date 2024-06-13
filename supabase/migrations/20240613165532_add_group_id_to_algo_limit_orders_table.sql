@@ -1,0 +1,1 @@
+alter table if exists algo_limit_orders add column if not exists group_id text null;

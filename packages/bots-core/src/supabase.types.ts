@@ -84,8 +84,11 @@ export type Database = {
           completed_on: string | null
           created_at: string
           dex_used: string | null
+          excess_group_id: string | null
+          excess_trx_id: string | null
           first_asset_in_linked_trades: number | null
           generate_reverse_trade: boolean
+          group_id: string | null
           id: number
           is_active: boolean
           is_completed: boolean
@@ -108,8 +111,11 @@ export type Database = {
           completed_on?: string | null
           created_at?: string
           dex_used?: string | null
+          excess_group_id?: string | null
+          excess_trx_id?: string | null
           first_asset_in_linked_trades?: number | null
           generate_reverse_trade?: boolean
+          group_id?: string | null
           id?: number
           is_active?: boolean
           is_completed?: boolean
@@ -132,8 +138,11 @@ export type Database = {
           completed_on?: string | null
           created_at?: string
           dex_used?: string | null
+          excess_group_id?: string | null
+          excess_trx_id?: string | null
           first_asset_in_linked_trades?: number | null
           generate_reverse_trade?: boolean
+          group_id?: string | null
           id?: number
           is_active?: boolean
           is_completed?: boolean
