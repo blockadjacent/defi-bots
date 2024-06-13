@@ -14,17 +14,19 @@ import type { TinymanQuote } from "./quote";
 import BigNumber from "bignumber.js";
 import { signerWithSecretKey } from "../../util/foundation";
 import { optInToValidatorApp } from "./v1-validator-app";
+import { SwapResultTxAndGroupIds } from "../index";
 
 export const performTinymanSwap = async (
     quote: TinymanQuote,
     account: Account,
     algodClient: Algodv2,
     network: SupportedNetwork
-): Promise<string> => {
+): Promise<SwapResultTxAndGroupIds> => {
     const slippage = BigNumber(quote.slippage).div(100).toNumber();
     let swapTxns: SignerTransaction[];
     let signedTxns: Uint8Array[];
     let swapExecution: V1SwapExecution | V2SwapExecution;
+    let swapResultIds = {} as SwapResultTxAndGroupIds;
 
     if (quote.contractVersion === "v1_1") {
         const pool = quote.pool!;
@@ -56,6 +58,9 @@ export const performTinymanSwap = async (
             initiatorAddr: account.addr,
         })) as V1SwapExecution;
 
+        swapResultIds.txId = swapExecution.txnID;
+        swapResultIds.groupId = swapExecution.groupID;
+
         // Check if any excess remains after the swap and redeem it right away.
         if (swapExecution.excessAmount.totalExcessAmount > 0n) {
             const redeemTxns = await generateRedeemTxns({
@@ -66,12 +71,15 @@ export const performTinymanSwap = async (
                 initiatorAddr: account.addr,
             });
 
-            await redeemExcessAsset({
+            const excessRedeemResult = await redeemExcessAsset({
                 client: algodClient,
                 pool,
                 txGroup: redeemTxns,
                 initiatorSigner: signerWithSecretKey(account),
             });
+
+            swapResultIds.excessTxId = excessRedeemResult.txnID;
+            swapResultIds.excessGroupId = excessRedeemResult.groupID;
         }
     } else {
         swapTxns = await Swap.v2.generateTxns({
@@ -94,7 +102,9 @@ export const performTinymanSwap = async (
             txGroup: swapTxns,
             signedTxns,
         });
+
+        swapResultIds.txId = swapExecution.txnID;
     }
 
-    return swapExecution.txnID;
+    return swapResultIds;
 };

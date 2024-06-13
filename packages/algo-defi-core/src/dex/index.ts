@@ -10,3 +10,10 @@ export type GetQuoteParams = Pick<Tables<"algo_limit_orders">, "amount_in" | "sl
     asset_in: AlgoLimitOrderAsset;
     asset_out: AlgoLimitOrderAsset;
 };
+
+export type SwapResultTxAndGroupIds = {
+    groupId?: string;
+    txId: string;
+    excessGroupId?: string; // set if swap is executed via Tinyman v1.1 smart contracts
+    excessTxId?: string; // set if swap is executed via Tinyman v1.1 smart contracts
+};

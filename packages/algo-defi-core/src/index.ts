@@ -1,7 +1,7 @@
 export type { TinymanClientWrapper, PactClientWrapper, AMMClients } from "./util/client";
 export type { AlgoLimitOrderAsset } from "./util/data-retriever";
 
-export type { GetQuoteParams } from "./dex";
+export type { GetQuoteParams, SwapResultTxAndGroupIds } from "./dex";
 export type { TinymanQuote } from "./dex/tinyman/quote";
 export type { PactQuote } from "./dex/pact/quote";
 export type { Quotes } from "./dex/aggregate/quote";

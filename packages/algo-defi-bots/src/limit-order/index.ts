@@ -148,7 +148,7 @@ async function main() {
                             console.log("Initiating swap...");
                         }
 
-                        const txId = await performSwap(bestQuote, account, ammClients);
+                        const swapResult = await performSwap(bestQuote, account, ammClients);
 
                         // Get new balance of the receiving asset after performing the swap.
                         if (holding !== null) {
@@ -175,8 +175,15 @@ async function main() {
                             completed_on: now,
                             updated_at: now,
                             dex_used: bestQuote.dex,
-                            trx_id: txId,
+                            trx_id: swapResult.txId,
                         };
+
+                        ["groupId", "excessGroupId", "excessTxId"].forEach(key => {
+                            if (Object.hasOwn(swapResult, key)) {
+                                // @ts-ignore
+                                updateData[key] = swapResult[key];
+                            }
+                        });
 
                         if (holding !== null && holdingAfterReceive !== null) {
                             amountReceived = holdingAfterReceive.minus(holding).toFixed(assetOut.decimals);
