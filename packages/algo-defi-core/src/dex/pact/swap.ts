@@ -15,6 +15,6 @@ export const performPactSwap = async (
     await waitForConfirmation(algodClient, tx.txId, 8);
 
     return {
-        txId: tx.txId,
+        txnId: tx.txId,
     };
 };

@@ -15,7 +15,13 @@ import {
     SupportedDex,
     updateAlgoLimitOrder,
 } from "@blockadjacent/algo-defi-core";
-import { formatAmount, numberToBigNumber, TablesInsert, TablesUpdate } from "@blockadjacent/bots-core";
+import {
+    formatAmount,
+    numberToBigNumber,
+    simpleSnakeToCamel,
+    TablesInsert,
+    TablesUpdate,
+} from "@blockadjacent/bots-core";
 import BigNumber from "bignumber.js";
 import { formatISO } from "date-fns";
 
@@ -175,13 +181,14 @@ async function main() {
                             completed_on: now,
                             updated_at: now,
                             dex_used: bestQuote.dex,
-                            trx_id: swapResult.txId,
+                            txn_id: swapResult.txnId,
                         };
 
-                        ["groupId", "excessGroupId", "excessTxId"].forEach(key => {
-                            if (Object.hasOwn(swapResult, key)) {
+                        ["group_id", "excess_group_id", "excess_txn_id"].forEach(key => {
+                            const keyToCamelCase = simpleSnakeToCamel(key);
+                            if (Object.hasOwn(swapResult, keyToCamelCase)) {
                                 // @ts-ignore
-                                updateData[key] = swapResult[key];
+                                updateData[key] = swapResult[keyToCamelCase];
                             }
                         });
 
