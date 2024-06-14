@@ -180,7 +180,7 @@ async function main() {
                             is_completed: true,
                             completed_on: now,
                             updated_at: now,
-                            dex_used: bestQuote.dex,
+                            dex_used: `${bestQuote.dex}${bestQuote.dex === "tinyman" ? " " + bestQuote.quote.contractVersion : ""}`,
                             txn_id: swapResult.txnId,
                         };
 
