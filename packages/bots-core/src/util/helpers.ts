@@ -33,3 +33,8 @@ export const formatAmount = (value: any, maxDecimalDigits: number): string => {
         maximumFractionDigits: maxDecimalDigits,
     }).format(value);
 };
+
+export const simpleSnakeToCamel = (str: string) => {
+    if (!/[_-]/.test(str)) return str;
+    return str.toLowerCase().replace(/[-_][a-z0-9]/g, group => group.slice(-1).toUpperCase());
+};

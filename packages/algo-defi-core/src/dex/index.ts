@@ -13,7 +13,7 @@ export type GetQuoteParams = Pick<Tables<"algo_limit_orders">, "amount_in" | "sl
 
 export type SwapResultTxAndGroupIds = {
     groupId?: string;
-    txId: string;
+    txnId: string;
     excessGroupId?: string; // set if swap is executed via Tinyman v1.1 smart contracts
-    excessTxId?: string; // set if swap is executed via Tinyman v1.1 smart contracts
+    excessTxnId?: string; // set if swap is executed via Tinyman v1.1 smart contracts
 };
