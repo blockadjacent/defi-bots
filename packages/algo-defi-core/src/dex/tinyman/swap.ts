@@ -58,7 +58,7 @@ export const performTinymanSwap = async (
             initiatorAddr: account.addr,
         })) as V1SwapExecution;
 
-        swapResultIds.txId = swapExecution.txnID;
+        swapResultIds.txnId = swapExecution.txnID;
         swapResultIds.groupId = swapExecution.groupID;
 
         // Check if any excess remains after the swap and redeem it right away.
@@ -78,7 +78,7 @@ export const performTinymanSwap = async (
                 initiatorSigner: signerWithSecretKey(account),
             });
 
-            swapResultIds.excessTxId = excessRedeemResult.txnID;
+            swapResultIds.excessTxnId = excessRedeemResult.txnID;
             swapResultIds.excessGroupId = excessRedeemResult.groupID;
         }
     } else {
@@ -103,7 +103,7 @@ export const performTinymanSwap = async (
             signedTxns,
         });
 
-        swapResultIds.txId = swapExecution.txnID;
+        swapResultIds.txnId = swapExecution.txnID;
     }
 
     return swapResultIds;

@@ -35,7 +35,8 @@ export const getAlgoLimitOrders = async (address: string, network: SupportedNetw
             reverse_trade_at_price,
             first_asset_in_linked_trades,
             always_use_starting_amount_in,
-            origin_trade
+            origin_trade,
+            created_at
         `
         )
         .eq("is_active", true)
@@ -78,11 +79,16 @@ export const getAlgoLimitOrder = async (id: number) => {
             generate_reverse_trade,
             reverse_trade_at_price,
             first_asset_in_linked_trades,
+            amount_received,
+            dex_used,
             always_use_starting_amount_in,
             is_active,
             is_completed,
             completed_on,
-            trx_id,
+            txn_id,
+            group_id,
+            excess_group_id,
+            excess_txn_id,
             created_at,
             updated_at,
             origin_trade

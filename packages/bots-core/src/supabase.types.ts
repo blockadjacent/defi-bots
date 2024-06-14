@@ -85,7 +85,7 @@ export type Database = {
           created_at: string
           dex_used: string | null
           excess_group_id: string | null
-          excess_trx_id: string | null
+          excess_txn_id: string | null
           first_asset_in_linked_trades: number | null
           generate_reverse_trade: boolean
           group_id: string | null
@@ -97,7 +97,7 @@ export type Database = {
           origin_trade: number | null
           reverse_trade_at_price: string | null
           slippage: number
-          trx_id: string | null
+          txn_id: string | null
           updated_at: string
           wallet_address: string
         }
@@ -112,7 +112,7 @@ export type Database = {
           created_at?: string
           dex_used?: string | null
           excess_group_id?: string | null
-          excess_trx_id?: string | null
+          excess_txn_id?: string | null
           first_asset_in_linked_trades?: number | null
           generate_reverse_trade?: boolean
           group_id?: string | null
@@ -124,7 +124,7 @@ export type Database = {
           origin_trade?: number | null
           reverse_trade_at_price?: string | null
           slippage?: number
-          trx_id?: string | null
+          txn_id?: string | null
           updated_at?: string
           wallet_address: string
         }
@@ -139,7 +139,7 @@ export type Database = {
           created_at?: string
           dex_used?: string | null
           excess_group_id?: string | null
-          excess_trx_id?: string | null
+          excess_txn_id?: string | null
           first_asset_in_linked_trades?: number | null
           generate_reverse_trade?: boolean
           group_id?: string | null
@@ -151,7 +151,7 @@ export type Database = {
           origin_trade?: number | null
           reverse_trade_at_price?: string | null
           slippage?: number
-          trx_id?: string | null
+          txn_id?: string | null
           updated_at?: string
           wallet_address?: string
         }
