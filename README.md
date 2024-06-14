@@ -8,4 +8,4 @@
 This repo houses experimental bots that trade cryptocurrency tokens via decentralized exchanges on different blockchains.
 Algorand is the only chain currently supported but Polygon and Arbitrum One are the next chains on the roadmap to be supported.
 
-These bots are an on-going development effort and are already successfully being used by our own development team.
+These bots are an on-going development effort and are already being used successfully by our own development team.
