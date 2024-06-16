@@ -261,8 +261,8 @@ async function main() {
             }
         }
 
-        // Delay repeating the loop of limit order checks by 8 seconds.
-        await sleep(8000);
+        // Delay repeating the loop of limit order checks by 6 seconds.
+        await sleep(6000);
     }
 }
 
