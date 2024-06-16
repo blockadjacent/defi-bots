@@ -13,12 +13,11 @@ export type Quotes = {
 };
 
 export const getQuotes = async (order: GetQuoteParams, ammClients: AMMClients): Promise<Quotes> => {
-    const tinymanQuote = await getTinymanQuote(order, ammClients);
-    const pactQuote = await getPactQuote(order, ammClients);
+    const quotes = await Promise.allSettled([getTinymanQuote(order, ammClients), getPactQuote(order, ammClients)]);
 
     return {
-        tinyman: tinymanQuote,
-        pact: pactQuote,
+        tinyman: quotes[0].status === "fulfilled" ? quotes[0].value : null,
+        pact: quotes[1].status === "fulfilled" ? quotes[1].value : null,
     };
 };
 
