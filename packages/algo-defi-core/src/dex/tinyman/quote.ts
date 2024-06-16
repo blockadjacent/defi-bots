@@ -44,29 +44,30 @@ export const getTinymanQuote = async (order: GetQuoteParams, ammClients: AMMClie
 
     try {
         const amountInScaled = getScaledAmount(order.amount_in, order.asset_in.decimals);
-        const v1Pool = await poolUtils.v1_1.getPoolInfo({
-            network: ammClients.network,
-            client: ammClients.clients.tinyman.algodClient,
-            asset1ID: order.asset_in.asset_id,
-            asset2ID: order.asset_out.asset_id,
-        });
+        const pools = await Promise.all([
+            poolUtils.v1_1.getPoolInfo({
+                network: ammClients.network,
+                client: ammClients.clients.tinyman.algodClient,
+                asset1ID: order.asset_in.asset_id,
+                asset2ID: order.asset_out.asset_id,
+            }),
+            poolUtils.v2.getPoolInfo({
+                network: ammClients.network,
+                client: ammClients.clients.tinyman.algodClient,
+                asset1ID: order.asset_in.asset_id,
+                asset2ID: order.asset_out.asset_id,
+            }),
+        ]);
 
-        const v2Pool = await poolUtils.v2.getPoolInfo({
-            network: ammClients.network,
-            client: ammClients.clients.tinyman.algodClient,
-            asset1ID: order.asset_in.asset_id,
-            asset2ID: order.asset_out.asset_id,
-        });
-
-        if (!poolUtils.isPoolReady(v1Pool) && !poolUtils.isPoolReady(v2Pool)) {
+        if (!poolUtils.isPoolReady(pools[0]) && !poolUtils.isPoolReady(pools[1])) {
             return null;
         }
 
-        if (poolUtils.isPoolReady(v1Pool)) {
-            reserves = await poolUtils.v1_1.getPoolReserves(ammClients.clients.tinyman.algodClient, v1Pool);
+        if (poolUtils.isPoolReady(pools[0])) {
+            reserves = await poolUtils.v1_1.getPoolReserves(ammClients.clients.tinyman.algodClient, pools[0]);
             preparedV1Quote = Swap.v1_1.getQuote(
                 SwapType.FixedInput,
-                v1Pool,
+                pools[0],
                 reserves,
                 {
                     id: order.asset_in.asset_id,
@@ -79,7 +80,7 @@ export const getTinymanQuote = async (order: GetQuoteParams, ammClients: AMMClie
             );
         }
 
-        if (poolUtils.isPoolReady(v2Pool)) {
+        if (poolUtils.isPoolReady(pools[1])) {
             preparedV2Quote = await Swap.v2.getQuote({
                 type: SwapType.FixedInput,
                 amount: amountInScaled,
@@ -91,7 +92,7 @@ export const getTinymanQuote = async (order: GetQuoteParams, ammClients: AMMClie
                     id: order.asset_out.asset_id,
                     decimals: order.asset_out.decimals,
                 },
-                pool: v2Pool,
+                pool: pools[1],
                 network: ammClients.network,
                 isSwapRouterEnabled: true,
             });
@@ -145,7 +146,7 @@ export const getTinymanQuote = async (order: GetQuoteParams, ammClients: AMMClie
         };
 
         if (contractVersion === "v1_1") {
-            returnedQuote.pool = v1Pool;
+            returnedQuote.pool = pools[0];
         }
     } catch (_error) {}
 
