@@ -62,14 +62,15 @@ async function main() {
                 const limitOrder = limitOrders.data[i];
                 const assetIn = limitOrder.asset_in as unknown as AlgoLimitOrderAsset;
                 const assetOut = limitOrder.asset_out as unknown as AlgoLimitOrderAsset;
+                const limitOrderAmountIn = limitOrder.amount_in.replace(/[\s,]+/g, "");
 
                 if (limitOrder.order_type === "buy") {
                     console.log(
-                        `Order to buy ${assetOut.unit_name} with ${limitOrder.amount_in} ${assetIn.unit_name} at a maximum price of ${limitOrder.at_price} ${assetIn.unit_name} per ${assetOut.unit_name}`
+                        `Order to buy ${assetOut.unit_name} with ${formatAmount(limitOrderAmountIn, assetIn.decimals)} ${assetIn.unit_name} at a maximum price of ${limitOrder.at_price} ${assetIn.unit_name} per ${assetOut.unit_name}`
                     );
                 } else {
                     console.log(
-                        `Order to sell ${limitOrder.amount_in} ${assetIn.unit_name} for ${assetOut.unit_name} at a minimum price of ${limitOrder.at_price} ${assetOut.unit_name} per ${assetIn.unit_name}`
+                        `Order to sell ${formatAmount(limitOrderAmountIn, assetIn.decimals)} ${assetIn.unit_name} for ${assetOut.unit_name} at a minimum price of ${limitOrder.at_price} ${assetOut.unit_name} per ${assetIn.unit_name}`
                     );
                 }
 
