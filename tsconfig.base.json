@@ -1,15 +1,15 @@
 {
-  "extends": "@tsconfig/node20/tsconfig.json",
-  "compilerOptions": {
-    "incremental": true,
-    "declaration": true,
-    "target": "ESNext",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "composite": true,
-    "paths": {
-      "@blockadjacent/bots-core/*": ["./packages/bots-core/src/*"]
-    }
-  },
-  "exclude": ["**/*.test.ts", "**/*.stub.ts", "node_modules", "dist"]
+    "extends": "@tsconfig/node20/tsconfig.json",
+    "compilerOptions": {
+        "incremental": true,
+        "declaration": true,
+        "target": "ES2022",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "composite": true,
+        "paths": {
+            "@blockadjacent/bots-core/*": ["./packages/bots-core/src/*"]
+        }
+    },
+    "exclude": ["**/*.test.ts", "**/*.stub.ts", "node_modules", "dist"]
 }
