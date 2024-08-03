@@ -1,7 +1,10 @@
 import { supabaseAnon, Tables } from "@blockadjacent/bots-core";
 import { SupportedNetwork } from "@tinymanorg/tinyman-js-sdk";
 
-export const getAlgoLimitOrders = async (address: string, network: SupportedNetwork) => {
+export const getAlgoLimitOrders: (address: string, network: SupportedNetwork) => Promise<any> = async (
+    address: string,
+    network: SupportedNetwork
+) => {
     return supabaseAnon
         .from("algo_limit_orders")
         .select(
@@ -46,7 +49,7 @@ export const getAlgoLimitOrders = async (address: string, network: SupportedNetw
         .order("created_at", { ascending: true });
 };
 
-export const getAlgoLimitOrder = async (id: number) => {
+export const getAlgoLimitOrder: (id: number) => Promise<any> = async (id: number) => {
     return supabaseAnon
         .from("algo_limit_orders")
         .select(
