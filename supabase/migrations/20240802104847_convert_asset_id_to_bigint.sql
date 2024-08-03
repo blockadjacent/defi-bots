@@ -1,0 +1,1 @@
+alter table algo_assets alter column asset_id type bigint;
