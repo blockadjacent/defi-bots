@@ -1,7 +1,7 @@
 {
   "name": "defi-bots",
   "version": "1.0.0",
-  "description": "Experimental bots for trading cryptocurrency tokens via decentralized exchanges on different blockchains.",
+  "description": "Experimental bots for trading cryptocurrency tokens via decentralized exchanges on Algorand and, eventually, other blockchains.",
   "private": true,
   "repository": {
     "type": "git",
